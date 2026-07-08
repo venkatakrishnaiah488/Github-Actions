@@ -36,6 +36,8 @@ jobs:
         sudo apt-get update -y
         sudo apt-get install -y trivy
 
+    - name: maven dependency
+      run: mvn dependency:resolve
     - name: Trivy FS Scan
       run: trivy fs --format table -o fs-report.json .
 
